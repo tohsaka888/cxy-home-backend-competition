@@ -2,7 +2,7 @@
  * @Author: tohsaka888
  * @Date: 2022-09-05 13:38:42
  * @LastEditors: tohsaka888
- * @LastEditTime: 2022-09-05 15:17:39
+ * @LastEditTime: 2022-09-06 15:21:27
  * @Description: 请填写简介
  */
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
@@ -54,6 +54,7 @@ type Query = {
   username?: string;
   createdStartTime?: string;
   createdEndTime?: string;
+  place?: number;
 }
 
 
@@ -65,15 +66,18 @@ export default async function handler(
     await runMiddleware(req, res, cors)
     const db = await connectDB()
     const body: Query = req.body
+
     if (db) {
       const competition = db.collection('competition')
       const competitions: WithId<API.Competition>[] = await competition.find<WithId<API.Competition>>(
         {
-          name: body.name ? '/' + body.name + '/' : '/^/',
-          _id: body.id ? '/' + body.id + '/' : '/^/',
-          'creator.username': body.username ? '/' + body.username + '/' : '/^/',
+          name: body.name ? eval('/' + body.name + '/i') : /^/,
+          // _id: body.id ? '/' + body.id + '/i' : '/^/',
+          'creator.username': body.username ? eval('/' + body.username + '/i') : /^/,
+          'info.place': body.place ? eval('/' + body.place + '/i') : /^/
         }
       ).toArray()
+
       const filteredCompetitions = competitions.filter(
         (item: API.Competition) => {
           const filter1 = body.createdStartTime ? moment(item.createdTime).isAfter(moment(body.createdStartTime)) : true
@@ -87,6 +91,6 @@ export default async function handler(
       new Error('连接数据库失败')
     }
   } catch (error) {
-    res.status(500).json({ success: false, error: (error as Error).message })
+    res.status(200).json({ success: false, error: (error as Error).message })
   }
 }
