@@ -2,7 +2,7 @@
  * @Author: tohsaka888
  * @Date: 2022-09-05 13:38:42
  * @LastEditors: tohsaka888
- * @LastEditTime: 2022-09-05 13:58:09
+ * @LastEditTime: 2022-09-08 11:04:44
  * @Description: 请填写简介
  */
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
@@ -48,12 +48,13 @@ export default async function handler(
   try {
     await runMiddleware(req, res, cors)
     const db = await connectDB()
-    const body: { competition: API.Competition & { id?: string } } = req.body
+    const body: { competition: API.Competition & { id?: string, _id?: string } } = req.body
     if (db) {
-      const id = body.competition.id
+      const id = body.competition?.id
       delete body.competition.id
+      delete body.competition._id
       const competition = db.collection('competition')
-      await competition.updateOne({ _id: new ObjectId(id) }, { ...body.competition })
+      await competition.updateOne({ _id: new ObjectId(id) }, { $set: body.competition })
       res.status(200).json({ success: true, isEdit: true })
     } else {
       new Error('连接数据库失败')
