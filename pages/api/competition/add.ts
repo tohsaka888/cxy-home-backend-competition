@@ -2,7 +2,7 @@
  * @Author: tohsaka888
  * @Date: 2022-09-05 13:38:42
  * @LastEditors: tohsaka888
- * @LastEditTime: 2022-09-05 13:54:16
+ * @LastEditTime: 2022-09-09 09:13:41
  * @Description: 请填写简介
  */
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
@@ -49,9 +49,13 @@ export default async function handler(
     const db = await connectDB()
     const body: { competition: API.Competition } = req.body
     if (db) {
-      const competition = db.collection('competition')
-      await competition.insertOne({ ...body.competition })
-      res.status(200).json({ success: true, isCreated: true })
+      if (body.competition) {
+        const competition = db.collection('competition')
+        await competition.insertOne({ ...body.competition })
+        res.status(200).json({ success: true, isCreated: true })
+      } else {
+        res.status(200).json({ success: false, error: '比赛不能为空' })
+      }
     } else {
       new Error('连接数据库失败')
     }
