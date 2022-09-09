@@ -2,7 +2,7 @@
  * @Author: tohsaka888
  * @Date: 2022-09-05 13:38:42
  * @LastEditors: tohsaka888
- * @LastEditTime: 2022-09-05 14:01:02
+ * @LastEditTime: 2022-09-09 16:13:18
  * @Description: 请填写简介
  */
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
@@ -44,10 +44,12 @@ export default async function handler(
   try {
     await runMiddleware(req, res, cors)
     const db = await connectDB()
-    const body: { id: string } = req.body
+    const body: { ids: string[] } = req.body
     if (db) {
-      const competition = db.collection('competition')
-      await competition.deleteOne({ _id: new ObjectId(body.id) })
+      if (body) {
+        const competition = db.collection('competition')
+        await competition.deleteMany({ _id: { $in: body.ids.map((id: string) => new ObjectId(id)) } })
+      }
       res.status(200).json({ success: true, isDeleted: true })
     } else {
       new Error('连接数据库失败')
