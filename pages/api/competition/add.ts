@@ -2,7 +2,7 @@
  * @Author: tohsaka888
  * @Date: 2022-09-05 13:38:42
  * @LastEditors: tohsaka888
- * @LastEditTime: 2022-09-09 09:13:41
+ * @LastEditTime: 2022-09-14 10:05:23
  * @Description: 请填写简介
  */
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
@@ -38,6 +38,15 @@ const cors = Cors({
   origin: '*',
   preflightContinue: true
 })
+
+
+export const config = {
+  api: {
+      bodyParser: {
+          sizeLimit: '4mb' // Set desired value here
+      }
+  }
+}
 
 
 export default async function handler(
