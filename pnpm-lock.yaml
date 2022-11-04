@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@types/cors': ^2.8.12
   '@types/node': 18.7.14
-  '@types/react': 18.0.18
+  '@types/react': 18.0.25
   '@types/react-dom': 18.0.6
   '@types/swagger-ui-react': ^4.11.0
   cors: ^2.8.5
@@ -32,7 +32,7 @@ dependencies:
 devDependencies:
   '@types/cors': 2.8.12
   '@types/node': 18.7.14
-  '@types/react': 18.0.18
+  '@types/react': 18.0.25
   '@types/react-dom': 18.0.6
   eslint: 8.23.0
   eslint-config-next: 12.2.5_yqf6kl63nyoq5megxukfnom5rm
@@ -304,7 +304,7 @@ packages:
   /@types/hoist-non-react-statics/3.3.1:
     resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
     dependencies:
-      '@types/react': 18.0.18
+      '@types/react': 18.0.25
       hoist-non-react-statics: 3.3.2
     dev: false
 
@@ -325,20 +325,20 @@ packages:
   /@types/react-dom/18.0.6:
     resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==}
     dependencies:
-      '@types/react': 18.0.18
+      '@types/react': 18.0.25
     dev: true
 
   /@types/react-redux/7.1.24:
     resolution: {integrity: sha512-7FkurKcS1k0FHZEtdbbgN8Oc6b+stGSfZYjQGicofJ0j4U0qIn/jaSvnP2pLwZKiai3/17xqqxkkrxTgN8UNbQ==}
     dependencies:
       '@types/hoist-non-react-statics': 3.3.1
-      '@types/react': 18.0.18
+      '@types/react': 18.0.25
       hoist-non-react-statics: 3.3.2
       redux: 4.2.0
     dev: false
 
-  /@types/react/18.0.18:
-    resolution: {integrity: sha512-6hI08umYs6NaiHFEEGioXnxJ+oEhY3eRz8VCUaudZmGdtvPviCJB8mgaMxaDWAdPSYd4eFavrPk2QIolwbLYrg==}
+  /@types/react/18.0.25:
+    resolution: {integrity: sha512-xD6c0KDT4m7n9uD4ZHi02lzskaiqcBxf4zi+tXZY98a04wvc0hi/TcCPC2FOESZi51Nd7tlUeOJY8RofL799/g==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
@@ -350,7 +350,7 @@ packages:
   /@types/swagger-ui-react/4.11.0:
     resolution: {integrity: sha512-WPMR+GWbLd7zvY/uOTGzGzP44zK2rIZSnU00+pDR2YANnEV6/qj0kqYfdSY1Vk6qdvI7dR0Tx8JEMgUUrUQDjw==}
     dependencies:
-      '@types/react': 18.0.18
+      '@types/react': 18.0.25
     dev: false
 
   /@types/unist/2.0.6:
