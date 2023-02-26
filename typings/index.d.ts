@@ -49,7 +49,7 @@ declare namespace API {
     winners: Winner[];
     intro: string;
     info: Info;
-    banners: CompetitionImage[];
+    banners?: CompetitionImage[];
     creator: Creator;
     awardSetting: AwardSetting[];
   }
