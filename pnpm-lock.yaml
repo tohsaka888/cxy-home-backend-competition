@@ -4,7 +4,7 @@ specifiers:
   '@types/cors': ^2.8.12
   '@types/node': 18.7.14
   '@types/react': 18.0.18
-  '@types/react-dom': 18.0.6
+  '@types/react-dom': 18.0.11
   '@types/swagger-ui-react': ^4.11.0
   cors: ^2.8.5
   eslint: 8.23.0
@@ -33,7 +33,7 @@ devDependencies:
   '@types/cors': 2.8.12
   '@types/node': 18.7.14
   '@types/react': 18.0.18
-  '@types/react-dom': 18.0.6
+  '@types/react-dom': 18.0.11
   eslint: 8.23.0
   eslint-config-next: 13.0.4_yqf6kl63nyoq5megxukfnom5rm
   typescript: 4.8.2
@@ -334,8 +334,8 @@ packages:
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
 
-  /@types/react-dom/18.0.6:
-    resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==}
+  /@types/react-dom/18.0.11:
+    resolution: {integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==}
     dependencies:
       '@types/react': 18.0.18
     dev: true
